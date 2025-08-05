@@ -16,7 +16,7 @@ model = load_model()
 
 st.text("ShakespeareGPT: A Bigram Language Model. Code by Andrej Karpathy, adapted for Streamlit.")
 
-prompt = st.text_input("Enter prompt text:", value="ROMEO")
+prompt = st.text_input("Enter prompt text:", value="ROMEO:")
 max_tokens = st.slider("Max tokens to generate:", 200, 1000, 400)
 
 if st.button("Generate"):
@@ -24,7 +24,7 @@ if st.button("Generate"):
         prompt = "\n"
 
     with st.spinner("Generating text..."):
-        encoded = torch.tensor([encode(prompt.lower())], dtype=torch.long, device=device)
+        encoded = torch.tensor([encode(prompt)], dtype=torch.long, device=device)
 
         generated = encoded
         placeholder = st.empty()
