@@ -17,14 +17,15 @@ st.title("Shakespeare GPT: Bigram Language Model Text Generator")
 
 prompt = st.text_input("Enter prompt text:", value="ROMEO")
 
-max_tokens = st.slider("Max tokens to generate:", 200, 1000, 500)
+max_tokens = st.slider("Max tokens to generate:", 200, 1000, 400)
 
 if st.button("Generate"):
     if not prompt:
         prompt = "\n"
     
-    encoded = torch.tensor([encode(prompt)], dtype=torch.long, device=device)
-    generated_ids = model.generate(encoded, max_new_tokens=max_tokens)[0].tolist()
-    generated_text = decode(generated_ids)
+    with st.spinner("Generating text..."):
+        encoded = torch.tensor([encode(prompt)], dtype=torch.long, device=device)
+        generated_ids = model.generate(encoded, max_new_tokens=max_tokens)[0].tolist()
+        generated_text = decode(generated_ids)
 
-    st.text_area("Generated Text", value=generated_text, height=300)
+    st.text_area("Generated Text", value=generated_text, height=500)
