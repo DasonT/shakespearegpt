@@ -17,7 +17,7 @@ st.text("ShakespeareGPT: A Bigram Language Model. Code by Andrej Karpathy, adapt
 
 prompt = st.text_input("Enter prompt text:", value="ROMEO")
 
-max_tokens = st.slider("Max tokens to generate:", 200, 1000, 400)
+max_tokens = st.slider("Max tokens to generate:", 200, 1000, 600)
 
 if st.button("Generate"):
     if not prompt:
