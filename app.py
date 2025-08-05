@@ -17,7 +17,7 @@ st.text("ShakespeareGPT: A Bigram Language Model. Code by Andrej Karpathy, adapt
 
 prompt = st.text_input("Enter prompt text:", value="ROMEO")
 
-max_tokens = st.slider("Max tokens to generate:", 200, 1000, 600)
+max_tokens = st.slider("Max tokens to generate:", 200, 1000, 400)
 
 if st.button("Generate"):
     if not prompt:
@@ -28,4 +28,4 @@ if st.button("Generate"):
         generated_ids = model.generate(encoded, max_new_tokens=max_tokens)[0].tolist()
         generated_text = decode(generated_ids)
 
-    st.text_area("Generated Text", value=generated_text, height=500)
+    st.text_area("Generated Text", value=generated_text, height=400)
