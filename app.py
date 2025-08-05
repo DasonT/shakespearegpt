@@ -13,7 +13,7 @@ def load_model():
 
 model = load_model()
 
-st.title("Shakespeare GPT: Bigram Language Model Text Generator")
+st.text("ShakespeareGPT: A Bigram Language Model. Code by Andrej Karpathy, adapted for Streamlit.")
 
 prompt = st.text_input("Enter prompt text:", value="ROMEO")
 
